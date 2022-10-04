@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('history/<int:year>/<int:month>/<int:day>/', views.history),
     path('history/', views.hist_formredirect),
+    path('subjects/', views.subjects),
     path('', views.index)
 ]

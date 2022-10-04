@@ -12,23 +12,23 @@
     <h1>Homeworks of {{ today | date:"d/m" }}</h1>
     <table>
         <tr>
-            <th>Subject</th>
+            <th><a href="/subjects/">Subject</a></th>
             <th>Description</th>
             <th>Due Date</th>
         </tr>
         {% for x in hwlist %}
             <tr>
-                <th><abbr title="{{ x.subject_name }}">{{ x.subject_short }}</abbr></th>
-                <th class="hwtype-{{ x.type.value }}">{{ x.description }}</th>
-                <th>{{ x.due_date | date:"d/m" }}</th>
+                <td><abbr title="{{ x.subject_name }}">{{ x.subject_short }}</abbr></td>
+                <td class="hwtype-{{ x.type.value }}">{{ x.description }}</td>
+                <td>{{ x.due_date | date:"d/m" }}</td>
             </tr>
         {% empty %}
             <tr>
-                <th colspan=3 class="empty">No homeworks now.</th>
+                <td colspan=3 class="empty">No homeworks now.</td>
             </tr>
         {% endfor %}
         <tr>
-            <th colspan=3 class="empty"><a href="admin/">MANAGE</a></th>
+            <td colspan=3 class="empty"><a href="admin/">MANAGE</a></td>
         </tr>
     </table>
     <hr />

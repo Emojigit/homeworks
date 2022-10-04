@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+{% load static %}
+{% load i18n %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <title>List of subjects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}" />
+</head>
+<body>
+    <h1>List of subjects</h1>
+    <table>
+        <tr>
+            <th>Short Code</th>
+            <th>Long Name</th>
+        </tr>
+        {% for x in subjects %}
+            <tr>
+                <td>{{ x.short_code }}</td>
+                <td>{{ x.name }}</td>
+            </tr>
+        {% endfor %}
+        <tr><!-- Static thing: Other subjects -->
+            <td>OTH</td>
+            <td>Other Subjects</td>
+        </tr>
+    </table>
+    <p><a href="/">⬅️ Back to mainpage</a></p>
+</body>
+</html>

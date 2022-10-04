@@ -13,6 +13,10 @@ def index(request):
     hwlist = models.Homework.objects.filter(due_date__gt = today).annotate(null_subject=Count('subject')).order_by("-null_subject","subject__sort_key")
     return render(request, "index.html", {**globals(),**locals()})
 
+def subjects(request):
+    subjects = models.Subject.objects.all().order_by("sort_key")
+    return render(request, "subjects.html", {**globals(),**locals()})
+
 def history(request,year,month,day):
     errmsg = ""
     try:

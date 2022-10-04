@@ -18,7 +18,7 @@ class Homework(models.Model):
     @property
     def subject_name(self):
         if not self.subject:
-            return "Other"
+            return "Other Subjects"
         return self.subject.name
     @property
     def subject_short(self):
