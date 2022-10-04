@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+{% load static %}
+{% load i18n %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <title>ERROR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}" />
+</head>
+<body>
+    <h1>ERROR! {{ errmsg }}</h1>
+    <p><a href="/">⬅️ Back to mainpage</a></p>
+</body>
+</html>

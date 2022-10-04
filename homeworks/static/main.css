@@ -1,0 +1,64 @@
+:root {
+    --bkg: #fff;
+    --text: #000;
+    --notify: magenta;
+    --alert: red;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bkg: #000;
+        --text: #add8e6;
+        --notify: yellow;
+        --alert: orange;
+    }
+}
+
+body {
+    text-align: center;
+    font-family: sans-serif;
+    background-color: var(--bkg);
+    color: var(--text);
+}
+
+hr {
+    background-color: var(--text);
+    width: 730px;
+    max-width: 95%;
+}
+
+a {
+    color: var(--text) !important;
+}
+
+h1 {
+    font-variant-caps: small-caps;
+}
+
+.empty {
+    font-style: italic;
+}
+
+table {
+    margin: 0px auto;
+    width: 700px;
+    max-width: 95%;
+}
+
+table, th, td {
+    text-align: center;
+    border: 1px solid var(--text);
+    border-collapse: collapse;
+}
+
+.hwtype-hw {
+    color: var(--text);
+}
+.hwtype-nt {
+    color: var(--notify);
+}
+.hwtype-al {
+    color: var(--alert);
+}
+
+
