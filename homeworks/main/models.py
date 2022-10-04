@@ -26,7 +26,7 @@ class Homework(models.Model):
             return "OTH"
         return self.subject.short_code
 
-    description = models.CharField(max_length=50,help_text=_("The content of the homework, including instructions from the teacher."))
+    description = models.CharField(max_length=200,help_text=_("The content of the homework, including instructions from the teacher."))
 
     class TypeEnum(models.TextChoices): # CSS .hwtype-{key}
         HOMEWORK = 'hw', _("Homeworks")
