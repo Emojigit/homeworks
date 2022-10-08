@@ -33,9 +33,9 @@
     </table>
     <hr />
     <div class="bottom">
-        <a href="/history/{{ yday | date:"y/m/d" }}/" style="text-align:left" class="bottom-item">&lt;&nbsp;Yesterday</a>
+        <a href="/history/{{ yday | date:"Y/m/d" }}/" style="text-align:left" class="bottom-item">&lt;&nbsp;Yesterday</a>
         <form method="GET" action="/history/" style="flex-shrink:0;text-align:center" class="bottom-item"><label>Jump to:</label> <input type="date" name="d" /><input type="submit" /></form>
-        <a href="/history/{{ tmr | date:"y/m/d" }}/" style="text-align:right" class="bottom-item">Tomorrow&nbsp;&gt;</a>
+        <a href="/history/{{ tmr | date:"Y/m/d" }}/" style="text-align:right" class="bottom-item">Tomorrow&nbsp;&gt;</a>
     </div>
 </body>
 </html>

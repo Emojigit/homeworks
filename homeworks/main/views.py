@@ -32,7 +32,7 @@ def history(request,year,month,day):
     finally:
         if errmsg != "":
             return render(request, "error.html", {**globals(),**locals()},status=400)
-    hwlist = models.Homework.objects.filter(create_date__lte = today, due_date__gt = today).annotate(null_subject=Count('subject')).order_by("-null_subject","subject__sort_key")
+    hwlist = models.Homework.objects.filter(create_date__lte = today, due_date__gt = today).annotate(null_subject=Count('subject')).order_by("-null_subject","subject__sort_key","due_date","description")
     return render(request, "index.html", {**globals(),**locals()})
 
 def hist_formredirect(request):
