@@ -61,4 +61,22 @@ table, th, td {
     color: var(--alert);
 }
 
+.bottom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.bottom-item {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/*@media (max-width: 600px) {
+    .bottomr {
+        flex-direction: column;
+    }
+}*/
 

@@ -10,7 +10,9 @@ import pandas as pd
 
 def index(request):
     today = datetime.date.today()
-    hwlist = models.Homework.objects.filter(due_date__gt = today).annotate(null_subject=Count('subject')).order_by("-null_subject","subject__sort_key")
+    yday  = today - datetime.timedelta(days=1)
+    tmr   = today + datetime.timedelta(days=1)
+    hwlist = models.Homework.objects.filter(due_date__gt = today).annotate(null_subject=Count('subject')).order_by("-null_subject","subject__sort_key","due_date","description")
     return render(request, "index.html", {**globals(),**locals()})
 
 def subjects(request):
@@ -21,6 +23,8 @@ def history(request,year,month,day):
     errmsg = ""
     try:
         today = datetime.date(year,month,day)
+        yday  = today - datetime.timedelta(days=1)
+        tmr   = today + datetime.timedelta(days=1)
     except OverflowError:
         errmsg = _("The provided integers are too large.")
     except ValueError:
