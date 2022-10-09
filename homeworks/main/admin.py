@@ -10,8 +10,15 @@ class SubjectAdmin(admin.ModelAdmin):
 admin.site.register(models.Subject,SubjectAdmin)
 
 class HomeworkAdmin(admin.ModelAdmin):
-    list_display = ('subject','description','type','create_date','due_date',)
+    list_display = ('subject_name','description','type','create_date','due_date',)
     list_filter = ('subject','type','create_date','due_date',)
     ordering = ('-create_date','-due_date','subject__sort_key','description',)
+    list_display_links = ('description',)
+    def subject_name(self, obj):
+        if obj.subject:
+            return obj.subject.short_code
+        else:
+            return 'OTH'
+    subject_name.short_description = "Subject"
 
 admin.site.register(models.Homework,HomeworkAdmin)
