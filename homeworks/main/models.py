@@ -12,6 +12,9 @@ class Subject(models.Model):
     def __str__(self):
         return _("%(name)s (%(short_code)s)" % {'name': self.name, 'short_code': self.short_code})
 
+def get_tomorrow():
+    return datetime.date.today() + datetime.timedelta(days=1)
+
 class Homework(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.SET_NULL, blank=True, null=True,help_text=_("The subject of the homework"))
 
@@ -35,6 +38,6 @@ class Homework(models.Model):
 
     type = EnumField(TypeEnum, default=TypeEnum.HOMEWORK,help_text=_("Type of the homework"))
 
-    due_date = models.DateField(help_text=_("The day students should hand in their homework"))
+    due_date = models.DateField(default=get_tomorrow,help_text=_("The day students should hand in their homework"))
     create_date = models.DateField(default=datetime.date.today,help_text=_("The day the teacher assigned the homework"))
 
