@@ -3,6 +3,8 @@
     --text: #000;
     --notify: magenta;
     --alert: red;
+    --tick-green: green;
+    --tick-lightgreen: lightgreen;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -11,6 +13,8 @@
         --text: #add8e6;
         --notify: yellow;
         --alert: orange;
+        --tick-green: lightgreen;
+        --tick-lightgreen: green;
     }
 }
 
@@ -37,6 +41,11 @@ h1 {
 
 .empty {
     font-style: italic;
+}
+
+.error {
+    color: var(--alert);
+    font-weight: bold;
 }
 
 table {
@@ -80,3 +89,18 @@ table, th, td {
     }
 }*/
 
+/* Homework Tick System */
+
+.hwtick-0 {
+    border-right: 1px solid var(--text);
+}
+.hwtick-0:hover {
+    border-right: 3px solid var(--tick-lightgreen);
+}
+
+.hwtick-1 {
+    border-right: 3px solid var(--tick-green);
+}
+.hwtick-1:hover {
+    border-right: 3px solid grey;
+}

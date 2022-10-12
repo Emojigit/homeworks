@@ -6,7 +6,15 @@
     <title>Homeworks of {{ today | date:"m/d" }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
     <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}" />
+    <link rel="preload" href="{% static 'main.css' %}" as="style" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="preload" href="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" as="script" />
+
+    <script src="{% static 'main.js' %}"></script>
+    <link rel="preload" href="{% static 'main.js' %}" as="script" />
 </head>
 <body>
     <h1>Homeworks of {{ today | date:"d/m" }}</h1>
@@ -19,7 +27,7 @@
         {% for x in hwlist %}
             <tr>
                 <td><abbr title="{{ x.subject_name }}">{{ x.subject_short }}</abbr></td>
-                <td class="hwtype-{{ x.type.value }}">{{ x.description }}</td>
+                <td class="hwtype-{{ x.type.value }} hw" data-hwid="{{x.id}}">{{ x.description }}</td>
                 <td>{{ x.due_date | date:"d/m" }}</td>
             </tr>
         {% empty %}
@@ -27,6 +35,9 @@
                 <td colspan=3 class="empty">No homeworks now.</td>
             </tr>
         {% endfor %}
+        <tr id="noLocalStorage" style="display:none">
+            <td colspan=3 class="error">LocalStorage not avaliable.</td>
+        </tr>
         <tr>
             <td colspan=3 class="empty"><a href="/admin/">MANAGE</a></td>
         </tr>
